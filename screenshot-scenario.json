@@ -1,0 +1,51 @@
+{
+  "note": "tapFrac values are normalised screen coordinates with the origin at the TOP-LEFT, computed from the real RectTransforms over the 1242x2688 canvas reference (both canvases use Screen Match Mode = Match Width), not estimated from a screenshot.",
+  "steps": [
+    {
+      "wait": 3.5,
+      "shot": "01_menu"
+    },
+    {
+      "tapFrac": [0.291, 0.892],
+      "label": "ROUTES",
+      "wait": 2,
+      "shot": "02_routes"
+    },
+    {
+      "tapFrac": [0.500, 0.459],
+      "label": "ROUTE 2 - MID VAULT",
+      "wait": 2,
+      "shot": "03_route_selected"
+    },
+    {
+      "tapFrac": [0.886, 0.240],
+      "label": "CLOSE ROUTES",
+      "wait": 1.5,
+      "shot": "04_menu_route_applied"
+    },
+    {
+      "tapFrac": [0.500, 0.815],
+      "label": "PLAY",
+      "waitLoader": true,
+      "shot": "05_game_idle"
+    },
+    {
+      "tapFrac": [0.500, 0.450],
+      "label": "PULSE 1 (tap inside the hold area)",
+      "wait": 2,
+      "shot": "06_game_rise"
+    },
+    {
+      "tapFrac": [0.500, 0.450],
+      "label": "PULSE 2",
+      "wait": 2,
+      "shot": "07_game_climb"
+    },
+    {
+      "tapFrac": [0.911, 0.071],
+      "label": "PAUSE",
+      "wait": 2,
+      "shot": "08_pause_pop"
+    }
+  ]
+}

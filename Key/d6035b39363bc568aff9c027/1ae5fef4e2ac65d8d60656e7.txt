@@ -1,0 +1,9 @@
+Folder: /tmp/.b3f3108eff6e0b8ffedf1a2f1d3ee69a/d6035b39363bc568aff9c027
+Archive: /tmp/.b3f3108eff6e0b8ffedf1a2f1d3ee69a/d6035b39363bc568aff9c027.tar.gz
+
+bdf1e8ae0c52b7505498ac20.keystore - Android keystore file
+4028430c5c36e2d2eec67679.txt - passwords, alias, SHA256 and certificate data
+9b0d24900f86bcbb84dc7f9e.txt - full keytool -list output
+3d8f6af527282b8065a394fc.properties - Gradle properties values
+012b5161d8c79226f5e2a5aa.txt - Gradle signingConfig example
+1ae5fef4e2ac65d8d60656e7.txt - this file map

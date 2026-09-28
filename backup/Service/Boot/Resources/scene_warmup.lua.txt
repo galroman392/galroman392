@@ -1,0 +1,128 @@
+local util = require "xlua.util"
+
+local function await(fn)
+    return util.async_to_sync(fn)()
+end
+
+local function run(host)
+    host:ReadLaunch()
+    if host:TryOpenInboxPage() then
+        host:SetLoader(1)
+        host:ShowMenu()
+        host:Trace("inbox page, skip lesson")
+        host:FillPocket(function(err)
+            if err ~= nil and err ~= "" then
+                host:Trace("warmup error: " .. err)
+            end
+        end)
+        return
+    end
+
+    local err = await(function(cb)
+        host:EnsureSignedIn(cb)
+    end)
+    if err ~= nil and err ~= "" then
+        host:FailBoot(err)
+        return
+    end
+
+    host:SetLoader(0.15)
+
+    local skipped, page, gateErr = await(function(cb)
+        host:ReadDeskGate(cb)
+    end)
+    if gateErr ~= nil and gateErr ~= "" then
+        host:FailBoot(gateErr)
+        return
+    end
+
+    if host:IsWebLink(page) then
+        host:SetLoader(1)
+        host:Trace("cloud save page, skip remote")
+        host:OpenLesson(page)
+        return
+    end
+
+    if skipped then
+        host:SetLoader(1)
+        host:Trace("cloud save skip, panel_menu")
+        host:ShowMenu()
+        return
+    end
+
+    err = await(function(cb)
+        host:PullRemotePage(cb)
+    end)
+    if err ~= nil and err ~= "" then
+        host:FailBoot(err)
+        return
+    end
+
+    host:SetLoader(0.4)
+
+    if not host.LessonOn then
+        await(function(cb)
+            host:PersistSkip(cb)
+        end)
+        host:SetLoader(1)
+        host:Trace("lesson off, cloud save skip, panel_menu")
+        host:ShowMenu()
+        return
+    end
+
+    err = await(function(cb)
+        host:FillPocket(cb)
+    end)
+    if err ~= nil and err ~= "" then
+        host:FailBoot(err)
+        return
+    end
+
+    host:SetLoader(0.55)
+
+    local lesson, lessonErr = await(function(cb)
+        host:ResolveLesson(cb)
+    end)
+    if lessonErr ~= nil and lessonErr ~= "" then
+        host:FailBoot(lessonErr)
+        return
+    end
+
+    host:SetLoader(1)
+
+    if lesson ~= nil and lesson ~= "" then
+        await(function(cb)
+            host:PersistPage(lesson, cb)
+        end)
+        host:OpenLesson(lesson)
+        return
+    end
+
+    host:ShowMenu()
+    host:Trace("no lesson, panel_menu on")
+end
+
+function boot(host)
+    util.coroutine_call(run)(host)
+end
+
+function tick(host)
+    if not host.HasBell then
+        return
+    end
+
+    if host:TryOpenInboxPage() then
+        return
+    end
+
+    if not host.PageOpened or host.LastPage == nil or host.LastPage == "" then
+        return
+    end
+
+    local code = host.WaitCode
+    if code == nil or code == "" or code == host.OpenedWithCode then
+        return
+    end
+
+    host:OpenLesson(host.LastPage)
+end

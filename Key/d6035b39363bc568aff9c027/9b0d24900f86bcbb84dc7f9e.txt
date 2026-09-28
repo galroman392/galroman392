@@ -1,0 +1,26 @@
+Alias name: daecb512e028d9bf5fed
+Creation date: Sep 25, 2026
+Entry type: PrivateKeyEntry
+Certificate chain length: 1
+Certificate[1]:
+Owner: CN=Maple Digital 24a0, OU=ProductLab, O=CedarWorks, L=Zagreb, ST=Mazovia, C=RO
+Issuer: CN=Maple Digital 24a0, OU=ProductLab, O=CedarWorks, L=Zagreb, ST=Mazovia, C=RO
+Serial number: ef442a77067bfdaa
+Valid from: Fri Sep 25 03:05:40 CDT 2026 until: Tue Feb 10 02:05:40 CST 2054
+Certificate fingerprints:
+	 SHA1: 5F:29:82:25:DD:6C:39:C8:D4:6C:AF:7A:23:D8:FD:92:EE:A5:3C:E8
+	 SHA256: 4F:CB:74:E9:74:05:52:C8:2A:A6:D5:17:27:1B:60:5A:19:F5:98:A9:CE:75:80:5D:7C:C6:42:ED:61:55:DC:72
+Signature algorithm name: SHA384withRSA
+Subject Public Key Algorithm: 2048-bit RSA key
+Version: 3
+
+Extensions: 
+
+#1: ObjectId: 2.5.29.14 Criticality=false
+SubjectKeyIdentifier [
+KeyIdentifier [
+0000: 33 40 7F 84 63 E4 D5 30   56 43 01 B8 19 2F 7B 5E  3@..c..0VC.../.^
+0010: 59 4B E8 8D                                        YK..
+]
+]
+

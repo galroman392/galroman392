@@ -1,0 +1,8 @@
+/Users/crozen/Desktop/Unity_pojects/3608-king-rush/.utmp/RelWithDebInfo/245x3i5k/arm64-v8a/CMakeFiles/edit_cache.dir
+/Users/crozen/Desktop/Unity_pojects/3608-king-rush/.utmp/RelWithDebInfo/245x3i5k/arm64-v8a/CMakeFiles/rebuild_cache.dir
+/Users/crozen/Desktop/Unity_pojects/3608-king-rush/.utmp/RelWithDebInfo/245x3i5k/arm64-v8a/GameActivity/CMakeFiles/game.dir
+/Users/crozen/Desktop/Unity_pojects/3608-king-rush/.utmp/RelWithDebInfo/245x3i5k/arm64-v8a/GameActivity/CMakeFiles/edit_cache.dir
+/Users/crozen/Desktop/Unity_pojects/3608-king-rush/.utmp/RelWithDebInfo/245x3i5k/arm64-v8a/GameActivity/CMakeFiles/rebuild_cache.dir
+/Users/crozen/Desktop/Unity_pojects/3608-king-rush/.utmp/RelWithDebInfo/245x3i5k/arm64-v8a/FramePacing/CMakeFiles/swappywrapper.dir
+/Users/crozen/Desktop/Unity_pojects/3608-king-rush/.utmp/RelWithDebInfo/245x3i5k/arm64-v8a/FramePacing/CMakeFiles/edit_cache.dir
+/Users/crozen/Desktop/Unity_pojects/3608-king-rush/.utmp/RelWithDebInfo/245x3i5k/arm64-v8a/FramePacing/CMakeFiles/rebuild_cache.dir

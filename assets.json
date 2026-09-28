@@ -1,0 +1,205 @@
+{
+  "style": "cel-shaded stylized 3D game art, chunky bold forms, thick rim light, high contrast, no photo",
+  "assets": [
+    {
+      "name": "BG_main",
+      "type": "bg",
+      "transparent": false,
+      "target": "Assets/Art/Textures/BG_main.png",
+      "orientation": "vertical 19.5:9 portrait",
+      "prompt": "vertical 19.5:9 portrait game background, looking up a towering royal energy shaft, deep navy walls, electric blue light beams, violet arcane haze, a golden beacon glow far above, cel-shaded stylized 3D game art, chunky bold forms, thick rim light, high contrast, no photo, important detail in the central safe area, low clutter along the bottom third, no text, no UI elements"
+    },
+    {
+      "name": "BG_game",
+      "type": "bg",
+      "transparent": false,
+      "target": "Assets/Art/Textures/BG_game.png",
+      "orientation": "vertical 19.5:9 portrait",
+      "prompt": "vertical 19.5:9 portrait game background, interior of a tall energy shaft, symmetrical dark navy side walls, faint violet runes, a soft blue vertical glow down the middle, low contrast so gameplay reads on top, cel-shaded stylized 3D game art, chunky bold forms, thick rim light, high contrast, no photo, no text, no UI elements"
+    },
+    {
+      "name": "sprite_core",
+      "type": "sprite",
+      "transparent": true,
+      "target": "Assets/Art/Sprites/sprite_core.png",
+      "orientation": "radially symmetric - never mirrored",
+      "prompt": "one single royal energy core orb, a faceted golden crystal heart inside a blue plasma sphere with a small crown-like ridge, glowing, cel-shaded stylized 3D game art, chunky bold forms, thick rim light, high contrast, no photo, single subject centered, whole in frame, no text"
+    },
+    {
+      "name": "sprite_core_broken",
+      "type": "sprite",
+      "transparent": true,
+      "target": "Assets/Art/Sprites/sprite_core_broken.png",
+      "orientation": "radially symmetric - never mirrored",
+      "prompt": "one single cracked royal energy orb, dimmed golden heart, fractured blue shell, drifting shards, cel-shaded stylized 3D game art, chunky bold forms, thick rim light, high contrast, no photo, single subject centered, whole in frame, no text"
+    },
+    {
+      "name": "sprite_socket",
+      "type": "sprite",
+      "transparent": true,
+      "target": "Assets/Art/Sprites/sprite_socket.png",
+      "orientation": "side view, opening facing RIGHT (the left-wall copy is mirrored in code)",
+      "prompt": "one single wall-mounted energy socket bracket, a metal clamp with a blue glowing inner ring, side view with its opening facing right, cel-shaded stylized 3D game art, chunky bold forms, thick rim light, high contrast, no photo, single subject centered, whole in frame, no text"
+    },
+    {
+      "name": "sprite_shield_ring",
+      "type": "sprite",
+      "transparent": true,
+      "target": "Assets/Art/Sprites/sprite_shield_ring.png",
+      "orientation": "radially symmetric - never mirrored",
+      "prompt": "one single glowing hexagonal shield ring, a thin blue energy hoop with a violet edge and a hollow centre, cel-shaded stylized 3D game art, chunky bold forms, thick rim light, high contrast, no photo, single subject centered, whole in frame, no text"
+    },
+    {
+      "name": "sprite_thrust_beam",
+      "type": "sprite",
+      "transparent": true,
+      "target": "Assets/Art/Sprites/sprite_thrust_beam.png",
+      "orientation": "vertical, bright end UP - 9-sliced along its length",
+      "prompt": "one single vertical thrust beam of blue plasma, bright at the top and fading toward the bottom, a straight column with identical left and right edges, cel-shaded stylized 3D game art, chunky bold forms, thick rim light, high contrast, no photo, single subject centered, whole in frame, no text"
+    },
+    {
+      "name": "sprite_barrier_sweep",
+      "type": "sprite",
+      "transparent": true,
+      "target": "Assets/Art/Sprites/sprite_barrier_sweep.png",
+      "orientation": "horizontal bar, both ends identical - 9-sliced across its width",
+      "prompt": "one single horizontal hazard bar, dark metal beam with red warning stripes and a glowing red edge, identical caps on both ends so it tiles, cel-shaded stylized 3D game art, chunky bold forms, thick rim light, high contrast, no photo, single subject centered, whole in frame, no text"
+    },
+    {
+      "name": "sprite_barrier_rotor",
+      "type": "sprite",
+      "transparent": true,
+      "target": "Assets/Art/Sprites/sprite_barrier_rotor.png",
+      "orientation": "radially symmetric, four blades - never mirrored",
+      "prompt": "one single four-bladed rotor hazard, violet metal blades around a glowing purple hub, symmetrical, cel-shaded stylized 3D game art, chunky bold forms, thick rim light, high contrast, no photo, single subject centered, whole in frame, no text"
+    },
+    {
+      "name": "sprite_barrier_gate",
+      "type": "sprite",
+      "transparent": true,
+      "target": "Assets/Art/Sprites/sprite_barrier_gate.png",
+      "orientation": "horizontal shutter, both ends identical - 9-sliced across its width",
+      "prompt": "one single horizontal energy shutter plate, a dark panel with a pulsing violet slit, identical ends, cel-shaded stylized 3D game art, chunky bold forms, thick rim light, high contrast, no photo, single subject centered, whole in frame, no text"
+    },
+    {
+      "name": "sprite_wall_segment",
+      "type": "sprite",
+      "transparent": true,
+      "target": "Assets/Art/Sprites/sprite_wall_segment.png",
+      "orientation": "vertical, enters at the TOP edge and leaves at the BOTTOM edge - 9-sliced vertically",
+      "prompt": "one single vertical shaft wall segment, dark navy armored plating with a thin blue light strip, the plating entering at the top edge and leaving at the bottom edge so segments stack seamlessly, cel-shaded stylized 3D game art, chunky bold forms, thick rim light, high contrast, no photo, single subject centered, whole in frame, no text"
+    },
+    {
+      "name": "sprite_section_marker",
+      "type": "sprite",
+      "transparent": true,
+      "target": "Assets/Art/Sprites/sprite_section_marker.png",
+      "orientation": "horizontal, symmetric - 9-sliced across its width",
+      "prompt": "one single horizontal floor marker strip, a thin dark ledge with two small blue lights, cel-shaded stylized 3D game art, chunky bold forms, thick rim light, high contrast, no photo, single subject centered, whole in frame, no text"
+    },
+    {
+      "name": "sprite_beacon_top",
+      "type": "sprite",
+      "transparent": true,
+      "target": "Assets/Art/Sprites/sprite_beacon_top.png",
+      "orientation": "symmetric, light shining UP",
+      "prompt": "one single crowning beacon lantern, a golden faceted lamp radiating light upward, ornate but chunky, cel-shaded stylized 3D game art, chunky bold forms, thick rim light, high contrast, no photo, single subject centered, whole in frame, no text"
+    },
+    {
+      "name": "sprite_repair_node",
+      "type": "sprite",
+      "transparent": true,
+      "target": "Assets/Art/Sprites/sprite_repair_node.png",
+      "orientation": "radially symmetric - never mirrored",
+      "prompt": "one single wall repair node, a small blue capsule with a golden plus-shaped glyph glowing inside, cel-shaded stylized 3D game art, chunky bold forms, thick rim light, high contrast, no photo, single subject centered, whole in frame, no text"
+    },
+    {
+      "name": "sprite_spark",
+      "type": "sprite",
+      "transparent": true,
+      "target": "Assets/Art/Sprites/sprite_spark.png",
+      "orientation": "radially symmetric - never mirrored",
+      "prompt": "one single burst of energy sparks, blue and gold shards radiating from a bright centre, cel-shaded stylized 3D game art, chunky bold forms, thick rim light, high contrast, no photo, single subject centered, whole in frame, no text"
+    },
+    {
+      "name": "sprite_rune_glyph",
+      "type": "sprite",
+      "transparent": true,
+      "target": "Assets/Art/Sprites/sprite_rune_glyph.png",
+      "orientation": "symmetric - never mirrored",
+      "prompt": "one single arcane wall rune, a faint violet geometric glyph etched into dark plating, cel-shaded stylized 3D game art, chunky bold forms, thick rim light, high contrast, no photo, single subject centered, whole in frame, no text"
+    },
+    {
+      "name": "sprite_emblem_core",
+      "type": "sprite",
+      "transparent": true,
+      "target": "Assets/Art/Sprites/sprite_emblem_core.png",
+      "orientation": "radially symmetric - never mirrored",
+      "prompt": "one single abstract hexagonal emblem mark, a faceted golden core shape inside a blue hexagon outline, heraldic and geometric, no letters, no lettering, no typography, cel-shaded stylized 3D game art, chunky bold forms, thick rim light, high contrast, no photo, single subject centered, whole in frame, no text"
+    },
+    {
+      "name": "sprite_integrity_shard",
+      "type": "sprite",
+      "transparent": true,
+      "target": "Assets/Art/Sprites/sprite_integrity_shard.png",
+      "orientation": "symmetric - never mirrored",
+      "prompt": "one single small hexagonal shield pip, a red glowing faceted chip, cel-shaded stylized 3D game art, chunky bold forms, thick rim light, high contrast, no photo, single subject centered, whole in frame, no text"
+    },
+    {
+      "name": "sprite_plate_round",
+      "type": "sprite",
+      "transparent": true,
+      "target": "Assets/Art/Sprites/sprite_plate_round.png",
+      "orientation": "symmetric - 9-sliced on all four sides",
+      "prompt": "one single rounded UI plate, a dark navy panel with a thin violet border and a subtle blue inner glow, empty centre, cel-shaded stylized 3D game art, chunky bold forms, thick rim light, high contrast, no photo, single subject centered, whole in frame, no text"
+    },
+    {
+      "name": "sprite_icon_close",
+      "type": "sprite",
+      "transparent": true,
+      "target": "Assets/Art/Sprites/sprite_icon_close.png",
+      "orientation": "symmetric - never mirrored",
+      "prompt": "one single close icon, a thick rounded X glyph in light cream with a soft blue rim light, cel-shaded stylized 3D game art, chunky bold forms, thick rim light, high contrast, no photo, single subject centered, whole in frame, no text"
+    },
+    {
+      "name": "sprite_icon_back",
+      "type": "sprite",
+      "transparent": true,
+      "target": "Assets/Art/Sprites/sprite_icon_back.png",
+      "orientation": "chevron facing LEFT",
+      "prompt": "one single back chevron icon, a thick rounded arrow head pointing left, light cream with a soft blue rim light, cel-shaded stylized 3D game art, chunky bold forms, thick rim light, high contrast, no photo, single subject centered, whole in frame, no text"
+    },
+    {
+      "name": "sprite_icon_pause",
+      "type": "sprite",
+      "transparent": true,
+      "target": "Assets/Art/Sprites/sprite_icon_pause.png",
+      "orientation": "symmetric - never mirrored",
+      "prompt": "one single pause icon, two thick rounded vertical bars in light cream with a soft blue rim light, cel-shaded stylized 3D game art, chunky bold forms, thick rim light, high contrast, no photo, single subject centered, whole in frame, no text"
+    },
+    {
+      "name": "sprite_tut_hold",
+      "type": "sprite",
+      "transparent": true,
+      "target": "Assets/Art/Sprites/sprite_tut_hold.png",
+      "orientation": "finger from below, beam pointing UP",
+      "prompt": "one single tutorial illustration, a chunky finger pressing and holding while a blue thrust beam lifts a glowing orb upward, cel-shaded stylized 3D game art, chunky bold forms, thick rim light, high contrast, no photo, single subject centered, whole in frame, no text"
+    },
+    {
+      "name": "sprite_tut_lock",
+      "type": "sprite",
+      "transparent": true,
+      "target": "Assets/Art/Sprites/sprite_tut_lock.png",
+      "orientation": "socket opening facing RIGHT",
+      "prompt": "one single tutorial illustration, a glowing orb snapping into a side wall socket while a shield ring lights up, socket opening facing right, cel-shaded stylized 3D game art, chunky bold forms, thick rim light, high contrast, no photo, single subject centered, whole in frame, no text"
+    },
+    {
+      "name": "sprite_tut_barrier",
+      "type": "sprite",
+      "transparent": true,
+      "target": "Assets/Art/Sprites/sprite_tut_barrier.png",
+      "orientation": "hazard bar horizontal, symmetric",
+      "prompt": "one single tutorial illustration, a horizontal red hazard bar sweeping past a glowing orb with three small shield pips beside it, cel-shaded stylized 3D game art, chunky bold forms, thick rim light, high contrast, no photo, single subject centered, whole in frame, no text"
+    }
+  ]
+}

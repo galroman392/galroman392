@@ -1,0 +1,23 @@
+# ninja log v5
+4	142	1790598559773117917	FramePacing/CMakeFiles/swappywrapper.dir/UnitySwappyWrapper.cpp.o	cd84852f23c70bc6
+4	1086	1790598560733541216	GameActivity/CMakeFiles/game.dir/UGAInputMotionEvent.cpp.o	975b86f1efbfca29
+4	1015	1790598560663019333	GameActivity/CMakeFiles/game.dir/UGAInputKeyEvent.cpp.o	8e1d7d3cb17af8a3
+3	1036	1790598560684129448	GameActivity/CMakeFiles/game.dir/UGAEntry.cpp.o	7a122acc9636e97f
+142	337	1790598559970773116	/Users/crozen/Desktop/Unity_pojects/3608-king-rush/Library/Bee/Android/Prj/IL2CPP/Gradle/unityLibrary/build/intermediates/cxx/RelWithDebInfo/245x3i5k/obj/armeabi-v7a/libswappywrapper.so	c0dad25f2e1d8020
+3	1034	1790598560684407239	GameActivity/CMakeFiles/game.dir/UGAConfiguration.cpp.o	66ce273701bcfcc6
+3	1075	1790598560724261346	GameActivity/CMakeFiles/game.dir/UGADebug.cpp.o	8f530520f9585067
+4	1138	1790598560780083653	GameActivity/CMakeFiles/game.dir/UGASoftKeyboard.cpp.o	e4e31294f69e3544
+4	1267	1790598560913173258	GameActivity/CMakeFiles/game.dir/UGAInput.cpp.o	82ac5a042d1529fc
+3	1405	1790598561053722942	GameActivity/CMakeFiles/game.dir/UGAApplication.cpp.o	df89471123bd2b2f
+1406	1515	1790598561162016099	/Users/crozen/Desktop/Unity_pojects/3608-king-rush/Library/Bee/Android/Prj/IL2CPP/Gradle/unityLibrary/build/intermediates/cxx/RelWithDebInfo/245x3i5k/obj/armeabi-v7a/libgame.so	699d2531dd559daa
+4	85	1790599596176627776	FramePacing/CMakeFiles/swappywrapper.dir/UnitySwappyWrapper.cpp.o	cd84852f23c70bc6
+85	155	1790599596237924682	/Users/crozen/Desktop/Unity_pojects/3608-king-rush/Library/Bee/Android/Prj/IL2CPP/Gradle/unityLibrary/build/intermediates/cxx/RelWithDebInfo/245x3i5k/obj/armeabi-v7a/libswappywrapper.so	c0dad25f2e1d8020
+3	414	1790599596503615177	GameActivity/CMakeFiles/game.dir/UGAEntry.cpp.o	7a122acc9636e97f
+3	446	1790599596533178676	GameActivity/CMakeFiles/game.dir/UGAInputMotionEvent.cpp.o	975b86f1efbfca29
+3	456	1790599596546134037	GameActivity/CMakeFiles/game.dir/UGAInputKeyEvent.cpp.o	8e1d7d3cb17af8a3
+3	471	1790599596560585184	GameActivity/CMakeFiles/game.dir/UGADebug.cpp.o	8f530520f9585067
+3	473	1790599596563579588	GameActivity/CMakeFiles/game.dir/UGAConfiguration.cpp.o	66ce273701bcfcc6
+3	502	1790599596592345882	GameActivity/CMakeFiles/game.dir/UGASoftKeyboard.cpp.o	e4e31294f69e3544
+3	592	1790599596681064588	GameActivity/CMakeFiles/game.dir/UGAInput.cpp.o	82ac5a042d1529fc
+2	642	1790599596730597461	GameActivity/CMakeFiles/game.dir/UGAApplication.cpp.o	df89471123bd2b2f
+642	678	1790599596768817673	/Users/crozen/Desktop/Unity_pojects/3608-king-rush/Library/Bee/Android/Prj/IL2CPP/Gradle/unityLibrary/build/intermediates/cxx/RelWithDebInfo/245x3i5k/obj/armeabi-v7a/libgame.so	699d2531dd559daa

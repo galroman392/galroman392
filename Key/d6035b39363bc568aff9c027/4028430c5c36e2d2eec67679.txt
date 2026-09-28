@@ -1,0 +1,15 @@
+Generated: 2026-09-25 03:05:42
+
+Keystore file: bdf1e8ae0c52b7505498ac20.keystore
+Keystore path: /tmp/.b3f3108eff6e0b8ffedf1a2f1d3ee69a/d6035b39363bc568aff9c027/bdf1e8ae0c52b7505498ac20.keystore
+Store type: PKCS12
+Alias: daecb512e028d9bf5fed
+Store password: 083f221feeeeac97eebdae8fd7f2d492583b9088
+Key password: 083f221feeeeac97eebdae8fd7f2d492583b9088
+Validity days: 10000
+Key algorithm: RSA
+Key size: 2048
+Certificate DN: CN=Maple Digital 24a0, OU=ProductLab, O=CedarWorks, L=Zagreb, ST=Mazovia, C=RO
+SHA256: 4F:CB:74:E9:74:05:52:C8:2A:A6:D5:17:27:1B:60:5A:19:F5:98:A9:CE:75:80:5D:7C:C6:42:ED:61:55:DC:72
+
+Keep this file safe. Without this keystore and password, you will not be able to update the signed Android app.

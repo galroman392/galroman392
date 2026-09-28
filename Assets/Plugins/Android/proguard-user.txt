@@ -1,0 +1,2 @@
+-keep class com.android.installreferrer.** { *; }
+-keep interface com.android.installreferrer.** { *; }
